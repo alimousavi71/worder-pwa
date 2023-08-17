@@ -52,6 +52,7 @@ module.exports = {
         secondary: '#19376D',
         base1: '#576CBC',
         base2: '#A5D7E8',
+        base3: '#17193c',
       },
       height: {
         screen: '100vh',

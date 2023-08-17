@@ -8,23 +8,24 @@
             rules="required|min:3"
         >
           <AppTextArea
-              v-model="email"
+              v-model="comment"
               :errors="errors"
               :placeholder="$t('comment.commentInput')"
           />
         </ValidationProvider>
 
+        <AppRateInput @change="updateRate" class="mb-5"/>
+
         <AppButton
             theme="medium"
             color="leaf-06"
-            icon="fal fa-arrow-right-to-bracket fa-rotate-180"
+            icon="fas fa-check"
             class="mt-2"
             :loading="loading"
-            :reverse-icon="true"
             :full="true"
             :disabled="loading"
             :label="$t('comment.submit')"
-            @click="loginRequest"/>
+            @click="submit"/>
       </form>
     </ValidationObserver>
   </div>
@@ -33,6 +34,7 @@
 import { ValidationObserver, ValidationProvider } from 'vee-validate'
 import AppButton from "~/components/form/AppButton";
 import AppTextArea from "~/components/form/AppTextArea";
+import AppRateInput from "~/components/form/AppRateInput";
 
 export default {
   name: 'AppCommentForm',
@@ -40,6 +42,7 @@ export default {
 
   },
   components: {
+    AppRateInput,
     AppTextArea,
     AppButton,
     ValidationObserver,
@@ -47,20 +50,35 @@ export default {
   },
   data() {
     return {
-      loading:false
+      loading:false,
+      comment:'',
+      rate:null,
     };
   },
   mounted() {
 
   },
   methods: {
+    updateRate(rate){
+      this.rate = rate;
+    },
+
+    submit() {
+      this.$refs.form.validate().then((success) => {
+        if (!success) {
+          return
+        }
+        this.sendComment()
+      })
+    },
+
     async sendComment(){
       this.loading = true;
       try {
         this.loading = true
         const {data} = await this.$mainService.contact({
-          comment:'Test Comment From Me!',
-          rate:1,
+          comment:this.comment,
+          rate:this.rate,
         })
         this.loading = false
         this.$toast.success(data.message);

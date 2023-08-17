@@ -19,11 +19,20 @@ export default {
     comment: 'نظر',
     commentInput: 'نظر خود را وارد کنید',
   },
+  profile: {
+    menu: {
+      profile: 'ویرایش پروفایل',
+      password: 'تغییر گذرواژه',
+      subscription: 'خرید اشتراک',
+      support: 'پشتیبانی',
+      signout: 'خروج',
+    },
+  },
   nav: {
     home: 'خانه',
     exam: 'آزمون',
     sentence: 'جملات',
-    user: 'پروفایل',
+    profile: 'پروفایل',
   },
   wordCount: 'کلمه',
   fullname: 'سید علی موسوی',

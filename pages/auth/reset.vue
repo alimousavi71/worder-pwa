@@ -78,6 +78,7 @@ import AppButton from "~/components/form/AppButton";
 
 export default {
   auth: 'guest',
+  layout: 'auth',
   name: 'Login',
   components: {
     AppButton,
@@ -86,7 +87,6 @@ export default {
     ValidationProvider,
     AuthHeader,
   },
-  layout: 'auth',
   data() {
     return {
       email: '',

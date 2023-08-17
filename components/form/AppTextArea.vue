@@ -5,7 +5,7 @@
       <textarea
           rows="8"
           :value="value"
-          class="text-white bg-transparent appearance-none outline-none"
+          class="text-white bg-transparent appearance-none outline-none w-full resize-none"
           :disabled="disabled"
           :placeholder="placeholder"
           autocomplete="one-time-code"

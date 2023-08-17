@@ -1,6 +1,7 @@
 import auth from '~/services/auth'
 import word from '~/services/word'
 import main from '~/services/main'
+import profile from '~/services/profile'
 
 export default ({ $axios }, inject) => {
   const services = {
@@ -12,6 +13,9 @@ export default ({ $axios }, inject) => {
     },
     mainService: {
       ...main($axios),
+    },
+    profileService: {
+      ...profile($axios),
     },
   }
   const methods = Object.keys(services)

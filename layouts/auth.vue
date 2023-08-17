@@ -12,8 +12,9 @@
 <script>
 import CopyRight from '~/components/general/CopyRight'
 export default {
-  name: 'Auth',
-  components: { CopyRight },
+  name: 'auth',
   middleware: 'auth',
+  auth: 'guest',
+  components: { CopyRight },
 }
 </script>

@@ -6,6 +6,9 @@
 
 <script>
 export default {
-  name: 'ProfileExam',
+  name: 'ExamPage',
+  mounted() {
+    this.$store.commit('main/setAppbarTitle', 'Exam');
+  }
 }
 </script>

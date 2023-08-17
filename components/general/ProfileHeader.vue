@@ -1,18 +1,18 @@
 <template>
   <div
-      class="flex justify-between items-center bg-base1 shadow-md rounded-lg p-4 mb-3" ref="container"
+      class="flex justify-between items-center bg-gray-900 shadow-md rounded-lg p-4 mb-3" ref="container"
   >
     <div class="flex justify-center items-center gap-3">
       <img
           class="w-14 rounded-full shadow-sm"
-          src="~/assets/images/avatar.jpeg"
-          alt=""
+          :src="$auth.user.avatar"
+          :alt="$auth.user.firstname + ' ' + $auth.user.lastname"
       />
-      <h4 class="font-black text-lg text-white" v-text="$t('fullname')"></h4>
+      <h4 class="font-black text-lg text-white" v-text="$auth.user.firstname + ' ' + $auth.user.lastname"></h4>
     </div>
 
     <div class="flex justify-center flex-col items-center mt-2">
-      <span class="text-3xl font-black text-white leading-5">10K</span>
+      <span class="text-3xl font-black text-white leading-5" v-text="$auth.user.allWords"></span>
       <span
           class="text-white font-medium text-sm leading-none"
           v-text="$t('wordCount')"

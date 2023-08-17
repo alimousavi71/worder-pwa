@@ -1,8 +1,11 @@
 <template>
-  <div class="bg-primary">
+  <div class="bg-black overflow-hidden">
     <div class="container mx-auto">
-      <div class="w-full h-screen mx-auto relative overflow-y-scroll" :class="{'pb-16':getIsBottomNavVisible}">
-        <Nuxt />
+      <div class="w-full h-screen mx-auto flex flex-col justify-between" :class="{'':getIsBottomNavVisible}">
+        <AppBar/>
+        <div class="flex-grow" ref="container">
+          <Nuxt/>
+        </div>
         <AppNavigation v-if="getIsBottomNavVisible"/>
       </div>
     </div>
@@ -10,12 +13,15 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import {mapGetters} from "vuex";
 import AppNavigation from "~/components/general/AppNavigation";
+import AppBar from "~/components/general/AppBar";
+
 
 export default {
-
-  components: {AppNavigation },
+  middleware: 'auth',
+  auth: true,
+  components: {AppBar, AppNavigation},
   computed: {
     ...mapGetters("main", [
       "getIsBottomNavVisible",
@@ -25,5 +31,18 @@ export default {
       return this.$store.state["main/isBottomNavVisible"];
     },
   },
+  mounted() {
+    // this.fakeLogin();
+  },
+  methods: {
+    async fakeLogin() {
+      await this.$auth.loginWith('local', {
+        data: {
+          email: 'arman34@example.org',
+          password: '12345678',
+        },
+      })
+    }
+  }
 }
 </script>

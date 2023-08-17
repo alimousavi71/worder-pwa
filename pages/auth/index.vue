@@ -69,7 +69,7 @@ import AppTextField from "~/components/form/AppTextField";
 import AppButton from "~/components/form/AppButton";
 
 export default {
-  auth: 'guest',
+  layout: 'auth',
   name: 'Login',
   components: {
     AppButton,
@@ -78,11 +78,11 @@ export default {
     ValidationProvider,
     AuthHeader,
   },
-  layout: 'auth',
+
   data() {
     return {
-      email: '',
-      password: '',
+      email: 'arman34@example.org',
+      password: '12345678',
       loading: false,
     }
   },

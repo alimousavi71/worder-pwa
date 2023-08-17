@@ -100,7 +100,7 @@ export default {
   @apply w-full;
 }
 .disabled {
-  @apply !bg-secondary/50 cursor-default;
+  @apply opacity-40 cursor-default;
 }
 
 .medium {

@@ -1,3 +1,5 @@
+// noinspection JSLastCommaInArrayLiteral
+
 export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: true,
@@ -120,6 +122,7 @@ export default {
     '~/assets/css/fontawesome.min.css',
     '~/assets/css/light.css',
     '~/assets/css/regular.css',
+    '~/assets/css/solid.css',
     '~/assets/css/tailwind.css',
   ],
   plugins: [
@@ -132,7 +135,11 @@ export default {
     { src: '~/plugins/helper.js', mode: 'client' },
   ],
   components: true,
-  buildModules: ['@nuxtjs/eslint-module', '@nuxtjs/tailwindcss'],
+  buildModules: [
+    '@nuxtjs/eslint-module',
+    '@nuxtjs/tailwindcss',
+    '@vueuse/nuxt',
+  ],
   modules: [
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
@@ -147,9 +154,10 @@ export default {
   },
 
   auth: {
+    // redirect: false,
     redirect: {
-      login: '/auth/login',
-      logout: '/auth/login',
+      login: '/auth',
+      logout: '/auth',
       home: '/',
     },
     strategies: {
@@ -192,5 +200,12 @@ export default {
   build: {
     postcss: {},
     extractCSS: true,
+    extend(config) {
+      config.module.rules.push({
+        test: /\.mjs$/,
+        include: /node_modules/,
+        type: 'javascript/auto',
+      })
+    },
   },
 }

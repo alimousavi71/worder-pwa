@@ -6,6 +6,9 @@
 
 <script>
 export default {
-  name: 'ProfileSentence',
+  name: 'SentencePage',
+  mounted() {
+    this.$store.commit('main/setAppbarTitle', 'Sentence');
+  }
 }
 </script>

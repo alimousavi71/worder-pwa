@@ -1,8 +1,8 @@
 <template>
   <div
       ref="modal"
-      class="fixed hidden top-0 left-0 z-20 w-full h-screen p-5 overflow-scroll md:p-20 bg-primary bg-black/70">
-    <div class="w-full md:w-[500px] bg-base1 shadow-2xl py-7 px-5 rounded-lg mx-auto">
+      class="fixed hidden top-0 left-0 z-20 w-full h-screen p-5  md:p-20 bg-primary bg-black/70">
+    <div class="w-full md:w-[500px] bg-base3 shadow-2xl py-7 px-5 rounded-lg mx-auto">
       <div class="flex items-center justify-between mb-3">
         <h1 class="text-xl font-bold text-white" v-text="title"></h1>
         <div

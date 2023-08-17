@@ -12,7 +12,6 @@
     <template v-if="words.length">
 
       <div class="absolute top-0 left-0 p-5 flex justify-between items-center w-full" ref="counter">
-        <AppButton icon="fas fa-home" @click="backToHome"/>
         <AppCounter :count="words.length" :current="currentIndex + 1"/>
         <AppButton :label="$t('report')" icon="fas fa-bug" @click="report"/>
       </div>
@@ -45,7 +44,7 @@ import AppModal from "~/components/general/AppModal";
 import AppReportSelect from "~/components/general/AppReportSelect";
 
 export default {
-  name: 'ProfileLearning',
+  name: 'LearningPage',
   components: {AppReportSelect, AppModal, AppCounter, AppButton, AppPlayButton, AppLoading},
   head:{
     title:'Worder - Learning'
@@ -65,6 +64,8 @@ export default {
   },
   mounted() {
     this.$store.dispatch('main/hideBottomNav');
+    this.$store.commit('main/setAppbarTitle', 'Learning');
+
     this.getWords();
     this.audio.next = new Audio('/click.mp3');
   },
@@ -77,9 +78,6 @@ export default {
     },
     report(){
       this.reportModalOpen = true
-    },
-    backToHome(){
-      this.$router.push('/profile');
     },
     async getWords() {
       try {
