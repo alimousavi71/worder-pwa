@@ -1,5 +1,5 @@
 <template>
-  <div class="p-3" ref="container">
+  <div ref="container">
     <AppModal :title="$t('comment.modalTitle')" :open="commentModalOpen" @status="closeCommentModal">
       <template v-slot:content>
         <AppCommentForm @done="commentSent"/>

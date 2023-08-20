@@ -104,10 +104,10 @@ export default {
 }
 
 .medium {
-  @apply bg-secondary/90 hover:bg-secondary h-12 px-3 min-w-[100px] rounded-md;
+  @apply bg-secondary/90 hover:bg-secondary h-14 px-3 min-w-[100px] rounded-md;
 }
 .medium .label {
-  @apply text-white;
+  @apply text-white font-medium;
 }
 .medium .icon {
   @apply text-white;

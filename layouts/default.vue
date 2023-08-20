@@ -1,9 +1,11 @@
 <template>
   <div class="bg-black overflow-hidden">
+
     <div class="container mx-auto">
+
       <div class="w-full h-screen mx-auto flex flex-col justify-between" :class="{'':getIsBottomNavVisible}">
         <AppBar/>
-        <div class="flex-grow" ref="container">
+        <div class="flex-grow px-6 py-4" ref="container">
           <Nuxt/>
         </div>
         <AppNavigation v-if="getIsBottomNavVisible"/>

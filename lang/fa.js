@@ -4,6 +4,10 @@ export default {
     start: 'شروع یاد گیری',
     comment: 'ثبت نظر',
   },
+  avatar: {
+    change: 'تغییر',
+    modalTitle: 'آواتار مورد علاقه خود را انتخاب کنید ❤️',
+  },
   wordReviews: 'کلمات مرور شده',
   wordNext: 'یاد گرفتم',
   report: 'گزارش',
@@ -20,6 +24,11 @@ export default {
     commentInput: 'نظر خود را وارد کنید',
   },
   profile: {
+    form: {
+      submit: 'به روز رسانی',
+      firstName: 'نام',
+      lastName: 'نام خانوادگی',
+    },
     menu: {
       profile: 'ویرایش پروفایل',
       password: 'تغییر گذرواژه',
@@ -33,6 +42,7 @@ export default {
     exam: 'آزمون',
     sentence: 'جملات',
     profile: 'پروفایل',
+    profileEdit: 'ویرایش پروفایل',
   },
   wordCount: 'کلمه',
   fullname: 'سید علی موسوی',

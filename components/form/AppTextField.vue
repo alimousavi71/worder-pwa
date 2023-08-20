@@ -1,11 +1,11 @@
 <template>
-  <div class="relative w-full mb-2" :class="{ 'pb-6': validation }">
-    <div class="flex items-center bg-secondary/50 rounded-md px-4 py-3.5 gap-4">
+  <div class="relative w-full mb-2" :class="{ 'pb-[25px]': validation }">
+    <div class="flex items-center bg-gray-900 rounded-md px-4 py-4 gap-4">
       <span v-if="icon" class="text-white" :class="icon"></span>
       <input
         :value="value"
         :type="type"
-        class="text-white bg-transparent appearance-none outline-none"
+        class="text-white text-lg bg-transparent appearance-none outline-none"
         :disabled="disabled"
         :placeholder="placeholder"
         autocomplete="one-time-code"

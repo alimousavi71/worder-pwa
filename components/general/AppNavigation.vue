@@ -1,13 +1,13 @@
 <template>
-  <div class="flex w-full">
+  <div class="flex m-3 rounded-3xl bg-secondary p-2">
     <nuxt-link
       v-for="(item, i) in items"
       :key="i"
-      class="flex flex-col items-center justify-center px-5 h-16 transition-all duration-300 bg-secondary flex-grow"
+      class="flex items-center justify-center px-3 py-2.5 rounded-full gap-2 transition-all duration-300 hover:bg-gray-900 flex-grow"
       :to="item.link"
     >
       <span class="fas mt-1 mb-1 text-white text-xl" :class="item.icon"></span>
-      <span class="text-white text-sm" v-text="item.title"></span>
+      <span class="text-white text-sm"  v-text="item.title"></span>
     </nuxt-link>
   </div>
 </template>
@@ -42,3 +42,8 @@ export default {
   },
 }
 </script>
+<style scoped>
+.nuxt-link-exact-active{
+  @apply bg-gray-900
+}
+</style>

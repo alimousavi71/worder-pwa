@@ -1,7 +1,7 @@
 <template>
   <div
       ref="modal"
-      class="fixed hidden top-0 left-0 z-20 w-full h-screen p-5  md:p-20 bg-primary bg-black/70">
+      class="fixed hidden top-0 left-0 z-20 w-full  p-5  md:p-20 bg-primary bg-black/70 max-height overflow-y-auto">
     <div class="w-full md:w-[500px] bg-base3 shadow-2xl py-7 px-5 rounded-lg mx-auto">
       <div class="flex items-center justify-between mb-3">
         <h1 class="text-xl font-bold text-white" v-text="title"></h1>
@@ -13,7 +13,7 @@
       </div>
       <hr class="border border-secondary/15" />
       <div class="pt-3">
-        <slot name="content"></slot>
+        <slot :triggerEvent="triggerEvent" name="content"></slot>
       </div>
     </div>
   </div>
@@ -35,6 +35,7 @@ export default {
   data() {
     return {
       openStatus: false,
+      triggerEvent: false,
       timeline:null
     };
   },
@@ -54,13 +55,22 @@ export default {
       this.$emit("status", this.openStatus);
     },
     startMotion() {
+      const self = this;
       gsap.to(this.$refs.modal, {
         opacity: this.openStatus ? 1 : 0,
         y: this.openStatus ? 0 : 100,
         z: this.openStatus ? 0 : 20,
-        duration: this.openStatus ? 0.3 : 0.3,
+        duration: this.openStatus ? 0.6 : 0.3,
         ease: this.openStatus ? "power1.out" : "power1.in",
         display: this.openStatus ? "block" : "none",
+        onStart(){
+          self.triggerEvent = false;
+        },
+        onComplete() {
+          if (self.openStatus){
+            self.triggerEvent = true;
+          }
+        }
       });
     },
     setMotion() {
@@ -74,3 +84,8 @@ export default {
   },
 }
 </script>
+<style scoped>
+.max-height{
+  max-height: 100vh;
+}
+</style>

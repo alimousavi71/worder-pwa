@@ -1,5 +1,5 @@
 <template>
-  <div class="p-3">
+  <div>
     <ProfileHeader/>
     <div>
       <ul>
@@ -31,27 +31,27 @@ export default {
         {
           title: this.$t('profile.menu.profile'),
           icon: 'fas fa-home',
-          to: 'profile/edit'
+          to: '/profile/edit'
         },
         {
           title: this.$t('profile.menu.password'),
           icon: 'fas fa-key',
-          to: 'profile/password'
+          to: '/profile/password'
         },
         {
           title: this.$t('profile.menu.subscription'),
           icon: 'fas fa-cart-shopping',
-          to: 'profile/password'
+          to: '/profile/subscription'
         },
         {
           title: this.$t('profile.menu.support'),
           icon: 'fas fa-phone',
-          to: 'profile/support'
+          to: '/profile/support'
         },
         {
           title: this.$t('profile.menu.signout'),
           icon: 'fas fa-person-from-portal',
-          to: 'profile/support'
+          to: '/profile/signout'
         }
       ],
     }

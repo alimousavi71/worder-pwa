@@ -7,7 +7,7 @@ const options = {
   rtl: true,
   position: 'bottom-center',
   transition: 'Vue-Toastification__slideBlurred',
-  timeout: 20000,
+  timeout: 3000,
 }
 
 Vue.use(Toast, options)

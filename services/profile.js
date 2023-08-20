@@ -3,11 +3,14 @@ export default ($axios) => {
     dashboard: async (params) => {
       return await $axios.get('api/profile')
     },
-    profile: async (params) => {
+    update: async (params) => {
       return await $axios.patch('api/profile', params)
     },
     password: async (params) => {
       return await $axios.patch('api/profile/password', params)
+    },
+    avatarUpdate: async (params) => {
+      return await $axios.patch('api/profile/avatar', params)
     },
     signout: async (params) => {
       return await $axios.post('api/profile/signout', params)
